@@ -10,13 +10,25 @@
 
     # utils
     bat # fancy version of `cat`
+    bottom # fancy version of `top`
+    choose # cut alternative
+    dog # fancy version of `dig`
     duf # fancy version of `df`
     exa # fancy version of `ls`
     fd # fancy version of `find`
     fzf # fuzzy finder
-    htop # fancy version of `top`
+    glow # markdown viewer
+    htop # another fancy version of `top`
+    httpie # http client
+    hyperfine # benchmarking tool
+    just # task runner
+    jq # json parser
+    procs # fancy version of `ps`
     ripgrep # fancy version of `grep`
     tealdeer # rust implementation of `tldr`
+
+    # nix things
+    nixfmt
   ];
 
   # ---------------------------------------------------------------------------
@@ -70,7 +82,6 @@
       gf = "git fetch";
     };
 
-    interactiveShellInit = "starship init fish | source";
     functions.fish_greeting = "";
   };
 
@@ -80,7 +91,10 @@
     settings = {
       format = "$username$hostname$directory$git_branch$git_state$git_status$cmd_duration$line_break$python$character";
 
-      directory = { style = "blue"; };
+      directory = {
+        style = "blue";
+        truncate_to_repo = false;
+      };
 
       character = {
         success_symbol = "[❯](purple)";
