@@ -8,7 +8,13 @@
   programs.fish.enable = true;
   programs.zsh.enable = true;
 
+  # configure /etc/shells
   environment.shells = [ pkgs.fish ];
+
+  system.activationScripts.extraActivation.text = ''
+    # set default shell to fish
+    chsh -s ${pkgs.fish}/bin/fish
+  '';
 
   # are these needed?
   services.nix-daemon.enable = true;
