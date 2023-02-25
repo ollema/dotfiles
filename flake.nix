@@ -1,6 +1,4 @@
 {
-  description = "darwin systems";
-
   inputs = {
     # -------------------------------------------------------------------------
     # nixpkgs input
@@ -28,12 +26,12 @@
       system = "aarch64-darwin"; # M1 processor
       modules = [
         # ---------------------------------------------------------------------
-        # nix-darwin configuration
+        # nix-darwin module
         # ---------------------------------------------------------------------
         ./darwin
 
         # ---------------------------------------------------------------------
-        # home-manager configuration
+        # home-manager module
         # ---------------------------------------------------------------------
         home-manager.darwinModules.home-manager
         {
