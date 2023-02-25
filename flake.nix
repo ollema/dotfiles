@@ -30,7 +30,7 @@
         # ---------------------------------------------------------------------
         # nix-darwin configuration
         # ---------------------------------------------------------------------
-        ./darwin-configuration.nix
+        ./darwin
 
         # ---------------------------------------------------------------------
         # home-manager configuration
@@ -39,7 +39,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.s0001325 = import ./home.nix;
+          home-manager.users.s0001325 = import ./home;
         }
       ];
     };
