@@ -42,6 +42,5 @@ in {
   programs.zsh = {
     inherit shellAliases;
     enable = true;
-    interactiveShellInit = "starship init zsh | source";
   };
 }
