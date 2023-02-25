@@ -41,7 +41,10 @@
 
     ignores = [ ".DS_Store" ];
 
-    aliases = { l = "log --pretty=oneline -n 50 --graph --abbrev-commit"; };
+    aliases = {
+      l =
+        "log --pretty=format:'%C(auto,bold)%h %C(auto,reset)-%C(auto)%d %<|(100,trunc)%C(auto,reset)%s %>(20,trunc)%C(auto,dim)%cr - %aN'";
+    };
 
     extraConfig = {
       hub.protocol = "ssh";
@@ -70,8 +73,8 @@
     };
 
     shellAbbrs = {
-      gs = "git status";
-      ga = "git add";
+      gs = "git status -sb";
+      ga = "git add .";
       gc = "git commit";
       gcm = "git commit -m";
       gca = "git commit --amend";
