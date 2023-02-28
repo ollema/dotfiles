@@ -6,7 +6,6 @@
   # ---------------------------------------------------------------------------
   home.packages = with pkgs; [
     # git
-    hub # git wrapper
     delta # git diff viewer
 
     # utils
@@ -58,7 +57,6 @@
     };
 
     extraConfig = {
-      hub.protocol = "ssh";
       push.default = "current";
       init.defaultBranch = "main";
       pull.rebase = true;
@@ -103,7 +101,6 @@
     shellAliases = {
       cat = "bat --paging=never";
       find = "fd";
-      git = "hub";
       ls = "exa";
       ll = "ls -la";
       tree = "exa --tree";
