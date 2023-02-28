@@ -9,7 +9,6 @@
     hub # git wrapper
 
     # utils
-    bat # fancy version of `cat`
     bottom # fancy version of `top`
     choose # cut alternative
     dog # fancy version of `dig`
@@ -30,6 +29,17 @@
     # nix things
     nixfmt
   ];
+
+  # ---------------------------------------------------------------------------
+  # bat
+  # ---------------------------------------------------------------------------
+  programs.bat = {
+    enable = true;
+    config = {
+      theme = "Visual Studio Dark+";
+      paging = "never";
+    };
+  };
 
   # ---------------------------------------------------------------------------
   # git
