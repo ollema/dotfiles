@@ -7,6 +7,7 @@
   home.packages = with pkgs; [
     # git
     hub # git wrapper
+    delta # git diff viewer
 
     # utils
     bottom # fancy version of `top`
@@ -62,6 +63,17 @@
       init.defaultBranch = "main";
       pull.rebase = true;
       color.ui = true;
+
+      core.pager = "delta";
+      interactive.diffFilter = "delta --color-only";
+      merge.conflictstyle = "diff3";
+      diff.colorMoved = "default";
+
+      delta = {
+        features = "side-by-side line-numbers";
+        syntax-theme = "Visual Studio Dark+";
+        navigate = true;
+      };
     };
   };
 
@@ -89,10 +101,10 @@
     enable = true;
 
     shellAliases = {
-      git = "hub";
-      ls = "exa";
       cat = "bat --paging=never";
       find = "fd";
+      git = "hub";
+      ls = "exa";
       ll = "ls -la";
       tree = "exa --tree";
       reload = "exec fish";
