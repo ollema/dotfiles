@@ -45,18 +45,15 @@ install_brew() {
 }
 
 clone_repository() {
-  repository="https://github.com/ollema/dotfiles.git"
-  clone_target="${HOME}/dotfiles"
-  
-  grep -q "${repository}" "${clone_target}/.git/config"
+  grep -q "https://github.com/ollema/dotfiles.git" "${HOME}/dotfiles/.git/config"
   if [[ $? -eq 0 ]]
   then
-    cd "${clone_target}"
+    cd "${HOME}/dotfiles"
     git status
     cd -
   else
-    rm -rf "${clone_target}"
-    git clone "${repository}" "${clone_target}"
+    rm -rf "${HOME}/dotfiles"
+    git clone "https://github.com/ollema/dotfiles.git" "${HOME}/dotfiles"
   fi
 }
 
