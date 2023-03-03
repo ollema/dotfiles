@@ -1,6 +1,6 @@
 # dotfiles
 
-## darwin setup instructions
+## darwin install instructions
 1. install certificates, VPN and other apps through self service
 2. configure default shell:
     * open Terminal
@@ -8,7 +8,7 @@
     * set Shells open with: `/bin/zsh`
 3. install/update command line tools and homebrew:
 ```bash
-./darwin-setup
+curl -fsSL https://raw.githubusercontent.com/ollema/dotfiles/main/install-darwin | bash
 ```
 4. install nix:
 ```bash
