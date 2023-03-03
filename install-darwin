@@ -24,7 +24,7 @@ install_command_line_tools() {
     softwareupdate -i "$CLT" --verbose
     rm /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
   }
-  echo "Command Line Tools are installed at $(xcode-select -p)"
+  echo "Command Line Tools installed at $(xcode-select -p)"
 }
 
 install_nix() {
