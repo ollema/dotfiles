@@ -1,6 +1,6 @@
 #!/bin/bash
 
-{ # Prevent script from running if partially downloaded
+{ # prevent script from running if partially downloaded
 
 set -euo pipefail
 
