@@ -38,8 +38,8 @@ install_nix() {
 install_brew() {
   command -v brew >/dev/null || {
     NONINTERACTIVE=1 /bin/bash -c "$(curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.profile
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+    # do I need to add brew to my path somehow for the homebrew home-manager module to work?
+    # or is having brew installed at `/opt/homebrew/bin/brew` enough?
   }
   echo "brew installed"
 }
