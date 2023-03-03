@@ -38,6 +38,8 @@ install_nix() {
 install_brew() {
   command -v brew >/dev/null || {
     NONINTERACTIVE=1 /bin/bash -c "$(curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.profile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
   }
   echo "brew installed"
 }
