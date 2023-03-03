@@ -28,7 +28,7 @@ install_command_line_tools() {
 }
 
 install_nix() {
-  command -v nix || {
+  command -v nix >/dev/null || {
     curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --no-confirm
     . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
   }
@@ -36,7 +36,7 @@ install_nix() {
 }
 
 install_brew() {
-  command -v brew || {
+  command -v brew >/dev/null || {
     NONINTERACTIVE=1 /bin/bash -c "$(curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   }
   echo "brew installed"
