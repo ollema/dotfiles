@@ -44,10 +44,24 @@ install_brew() {
   echo "brew installed"
 }
 
+clone_repository() {
+  repository="https://github.com/ollema/dotfiles.git"
+  clone_target="${HOME}/dotfiles"
+  if [ $( cat "${clone_target}/.git/config" | grep "${repository}" ) ]; then
+    cd "${clone_target}"
+    git status
+    cd -
+  else
+    rm -rf "${clone_target}"
+    git clone "${repository}" "${clone_target}"
+  fi
+}
+
 # installation flow
 sudo_prompt
 install_command_line_tools
 install_nix
 install_brew
+clone_repository
 
 } # prevent script from running if partially downloaded
