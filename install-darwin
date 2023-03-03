@@ -28,13 +28,24 @@ install_command_line_tools() {
 }
 
 install_nix() {
-  curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --no-confirm
-  . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+  command -v nix || {
+    curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --no-confirm
+    . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+  }
+  echo "nix installed"
+}
+
+install_brew() {
+  command -v brew || {
+    NONINTERACTIVE=1 /bin/bash -c "$(curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  }
+  echo "brew installed"
 }
 
 # installation flow
 sudo_prompt
 install_command_line_tools
 install_nix
+install_brew
 
 } # Prevent script from running if partially downloaded
