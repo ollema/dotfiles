@@ -50,4 +50,4 @@ install_command_line_tools
 install_nix
 install_brew
 
-} # Prevent script from running if partially downloaded
+} # prevent script from running if partially downloaded
