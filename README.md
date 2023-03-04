@@ -7,3 +7,4 @@
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/ollema/dotfiles/main/install-darwin | bash
 ```
+4. install apps which do not work well with nix/homebrew: discord
