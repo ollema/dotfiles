@@ -65,6 +65,21 @@ clone_repository() {
   fi
 }
 
+darwin_build() {
+  command -v nix-darwin || {
+    for filename in shells bashrc zshrc nix/nix.conf; do
+      filepath="/etc/${filename}"
+      if [ -f "${filepath}" ] && [ ! -L "${filepath}" ]; then
+        sudo mv "${filepath}" "${filepath}.backup-before-nix-darwin"
+      fi
+    done
+
+    nix build .#darwinConfigurations.mDYXPYMR2PF.system
+    ./result/sw/bin/darwin-rebuild switch --flake .
+  }
+  echo "nix-darwin built and activated!"
+}
+
 # installation flow
 sudo_prompt
 install_command_line_tools
@@ -72,5 +87,6 @@ install_nix
 install_brew
 create_run_directory
 clone_repository
+darwin_build
 
 } # prevent script from running if partially downloaded
