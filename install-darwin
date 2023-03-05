@@ -54,15 +54,12 @@ create_run_directory() {
 }
 
 clone_repository() {
-  if grep -q "https://github.com/ollema/dotfiles.git" "${HOME}/dotfiles/.git/config"
+  if ! grep -q "https://github.com/ollema/dotfiles.git" "${HOME}/dotfiles/.git/config"
   then
-    cd "${HOME}/dotfiles"
-    git status
-    cd -
-  else
     rm -rf "${HOME}/dotfiles"
     git clone "https://github.com/ollema/dotfiles.git" "${HOME}/dotfiles"
   fi
+  echo "dotfiles repo cloned"
 }
 
 darwin_build() {
@@ -73,7 +70,9 @@ darwin_build() {
         sudo mv "${filepath}" "${filepath}.backup-before-nix-darwin"
       fi
     done
-
+    
+    cd "${HOME}/dotfiles"
+    
     nix build .#darwinConfigurations.mDYXPYMR2PF.system --extra-experimental-features "nix-command flakes"
     ./result/sw/bin/darwin-rebuild switch --flake .
   }
