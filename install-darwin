@@ -38,15 +38,24 @@ install_nix() {
 install_brew() {
   command -v brew >/dev/null || {
     NONINTERACTIVE=1 /bin/bash -c "$(curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    # do I need to add brew to my path somehow for the homebrew home-manager module to work?
-    # or is having brew installed at `/opt/homebrew/bin/brew` enough?
   }
   echo "brew installed"
 }
 
+create_run_directory() {
+  if grep -q '^run\b' /etc/synthetic.conf
+  then
+    echo "/run directory already exists"
+  else
+    echo -e "run\tprivate/var/run" | sudo tee -a /etc/synthetic.conf
+    /System/Library/Filesystems/apfs.fs/Contents/Resources/apfs.util -B
+    /System/Library/Filesystems/apfs.fs/Contents/Resources/apfs.util -t
+    echo "/run directory created"
+  fi
+}
+
 clone_repository() {
-  grep -q "https://github.com/ollema/dotfiles.git" "${HOME}/dotfiles/.git/config"
-  if [[ $? -eq 0 ]]
+  if grep -q "https://github.com/ollema/dotfiles.git" "${HOME}/dotfiles/.git/config"
   then
     cd "${HOME}/dotfiles"
     git status
@@ -62,6 +71,7 @@ sudo_prompt
 install_command_line_tools
 install_nix
 install_brew
+create_run_directory
 clone_repository
 
 } # prevent script from running if partially downloaded
