@@ -35,7 +35,7 @@
     nixfmt
   ];
 
-  programs.vscode.enable = true;
+  programs.vscode = import ./vscode.nix { inherit pkgs; };
   
   # ---------------------------------------------------------------------------
   # bat
