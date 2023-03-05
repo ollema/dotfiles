@@ -36,7 +36,7 @@ install_nix() {
 }
 
 install_brew() {
-  command -v brew >/dev/null || {
+  [ -f /opt/homebrew/bin/brew ] || {
     NONINTERACTIVE=1 /bin/bash -c "$(curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   }
   echo "brew installed"
@@ -48,7 +48,6 @@ create_run_directory() {
     echo "/run directory already exists"
   else
     echo -e "run\tprivate/var/run" | sudo tee -a /etc/synthetic.conf
-    /System/Library/Filesystems/apfs.fs/Contents/Resources/apfs.util -B
     /System/Library/Filesystems/apfs.fs/Contents/Resources/apfs.util -t
     echo "/run directory created"
   fi
