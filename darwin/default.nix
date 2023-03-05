@@ -9,6 +9,10 @@
 
   # enable fish
   programs.fish.enable = true;
+  
+  # enable other shells
+  programs.zsh.enable = true;
+  programs.bash.enable = true;
 
   # configure /etc/shells to include fish
   environment.shells = [ pkgs.fish ];
