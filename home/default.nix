@@ -26,6 +26,9 @@
     ripgrep # fancy version of `grep`
     tealdeer # rust implementation of `tldr`
 
+    # terminal
+    iterm2
+
     # nix things
     nixfmt
   ];
