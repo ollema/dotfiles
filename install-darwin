@@ -43,7 +43,7 @@ install_brew() {
 }
 
 create_run_directory() {
-  if grep -q '^run\b' /etc/synthetic.conf
+  if sudo grep -q '^run\b' /etc/synthetic.conf
   then
     echo "/run directory already exists"
   else
