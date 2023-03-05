@@ -66,7 +66,7 @@ clone_repository() {
 }
 
 darwin_build() {
-  command -v nix-darwin || {
+  command -v darwin-rebuild || {
     for filename in shells bashrc zshrc nix/nix.conf; do
       filepath="/etc/${filename}"
       if [ -f "${filepath}" ] && [ ! -L "${filepath}" ]; then
