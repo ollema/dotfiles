@@ -23,4 +23,7 @@
   # enable nix-daemon
   services.nix-daemon.enable = true;
   nix.useDaemon = true;
+
+  # allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 }
