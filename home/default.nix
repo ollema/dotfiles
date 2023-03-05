@@ -127,6 +127,10 @@
 
     functions.fish_greeting = "";
   };
+  
+  # other shells
+  programs.zsh.enable = true;
+  programs.bash.enable = true;
 
   # starship prompt
   programs.starship = {
