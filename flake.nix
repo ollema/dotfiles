@@ -27,7 +27,7 @@
 
       # modules
       home-manager-user-module = import ./home { inherit homeDirectory pkgs stateVersion system username; };
-      nix-darwin-module = import ./darwin { inherit pkgs; };
+      nix-darwin-module = import ./darwin { inherit homeDirectory pkgs; };
     in {
       darwinConfigurations.${hostname} = darwin.lib.darwinSystem {
         inherit system;

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ homeDirectory, pkgs, ... }:
 
 {
   # configure user
@@ -13,10 +13,10 @@
   # configure /etc/shells to include fish so that chsh -s works
   environment.shells = [ pkgs.fish ];
 
-  # set default shell to fish.
+  # silence shell welcome with .hushlogin and set default shell to fish.
   # TODO: think this is needed because users.users.s0001325.shell 
   # does not do actually change the login shell of (existing?) users
-  system.activationScripts.extraActivation.text = "chsh -s ${pkgs.fish}/bin/fish";
+  system.activationScripts.extraActivation.text = "touch ${homeDirectory}/.hushlogin && chsh -s ${pkgs.fish}/bin/fish;";
 
   # TODO: why do I want the daemon? are both of theese needed?
   services.nix-daemon.enable = true;
@@ -31,6 +31,9 @@
 
   # TODO: why is this needed here and in flake.nix?
   nixpkgs.config.allowUnfree = true;
+
+  # enable sudo with TouchID
+  security.pam.enableSudoTouchIdAuth = true;
 
   # configure system.defaults
   system.defaults = import ./macos.nix;
