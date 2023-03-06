@@ -25,6 +25,10 @@
   # TODO: remove this once https://github.com/NixOS/nix/issues/7273 is fixed
   nix.settings.auto-optimise-store = false;
 
+  nix.extraOptions = ''
+    experimental-features = nix-command flakes
+  '';
+
   # TODO: why is this needed here and in flake.nix?
   nixpkgs.config.allowUnfree = true;
 
@@ -34,7 +38,9 @@
   # homebrew packages
   homebrew = {
     enable = true;
+    onActivation.autoUpdate = true;
     onActivation.upgrade = true;
+    onActivation.cleanup = "zap";
     casks = [ "autodesk-fusion360" "discord" "guitar-pro" "raycast" "rectangle" ];
   };
 }

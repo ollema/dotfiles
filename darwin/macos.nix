@@ -39,7 +39,7 @@
 
   # set a blazingly fast keyboard repeat rate
   NSGlobalDomain.InitialKeyRepeat = 15;
-  NSGlobalDomain.KeyRepeat = 1;
+  NSGlobalDomain.KeyRepeat = 6;
 
   # enable trackpad tap to click
   NSGlobalDomain."com.apple.mouse.tapBehavior" = 1;
@@ -51,4 +51,16 @@
   dock.autohide = true;
   # don't show recent applications in the dock
   dock.show-recents = false;
+  # set dock tilesize (default is 64)
+  dock.tilesize = 32;
+
+  # ----------------------------------------------------------------------------
+  # finder
+  # ----------------------------------------------------------------------------
+  # hide desktop icons
+  finder.CreateDesktop = false;
+  # enable quitting finder via ⌘ + Q (doing so will also hide desktop icons)
+  finder.QuitMenuItem = true;
+  # show path bar
+  finder.ShowPathbar = true;
 }

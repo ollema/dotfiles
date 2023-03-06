@@ -11,6 +11,7 @@
     let
       # constants 
       username = "s0001325";
+      hostname = "mDYXPYMR2PF";
       homeDirectory = "/Users/${username}";
       system = "aarch64-darwin";
       stateVersion = "22.11";
@@ -28,7 +29,7 @@
       home-manager-user-module = import ./home { inherit homeDirectory pkgs stateVersion system username; };
       nix-darwin-module = import ./darwin { inherit pkgs; };
     in {
-      darwinConfigurations.mDYXPYMR2PF = darwin.lib.darwinSystem {
+      darwinConfigurations.${hostname} = darwin.lib.darwinSystem {
         inherit system;
         modules = [
           nix-darwin-module
