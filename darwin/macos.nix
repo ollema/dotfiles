@@ -39,7 +39,7 @@
 
   # set a blazingly fast keyboard repeat rate
   NSGlobalDomain.InitialKeyRepeat = 15;
-  NSGlobalDomain.KeyRepeat = 6;
+  NSGlobalDomain.KeyRepeat = 2;
 
   # enable trackpad tap to click
   NSGlobalDomain."com.apple.mouse.tapBehavior" = 1;
