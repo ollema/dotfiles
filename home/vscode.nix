@@ -1,10 +1,10 @@
 { pkgs, ... }:
 
 let
-  # font = "CascadiaCode";
-  font = "Iosevka";
-  # colorTheme = "GitHub Dark Dimmed";
-  # iconTheme = "material-icon-theme";
+  font = "CaskaydiaCove Nerd Font Mono";
+  terminalFont = "CaskaydiaCove Nerd Font Mono";
+  colorTheme = "Visual Studio Dark+";
+  iconTheme = "material-icon-theme";
 
   inherit (pkgs.vscode-utils) buildVscodeMarketplaceExtension;
 
@@ -23,6 +23,7 @@ in {
     esbenp.prettier-vscode
     github.copilot
     mkhl.direnv
+    pkief.material-icon-theme
     svelte.svelte-vscode
     timonwong.shellcheck
     tomoki1207.pdf
@@ -35,8 +36,8 @@ in {
     # editor settings
     # --------------------------------------------------------------------------
     "editor.detectIndentation" = false;
-    # "editor.fontFamily" = font;
-    "editor.fontLigatures" = true;
+    "editor.fontFamily" = font;
+    "editor.fontLigatures" = false;
     "editor.formatOnPaste" = false;
     "editor.formatOnSave" = true;
     "editor.inlineSuggest.enabled" = true;
@@ -62,7 +63,13 @@ in {
     # --------------------------------------------------------------------------
     # terminal settings
     # --------------------------------------------------------------------------
-    "terminal.integrated.fontFamily" = font;
+    "terminal.integrated.fontFamily" = terminalFont;
+
+    # --------------------------------------------------------------------------
+    # workbench settings
+    # --------------------------------------------------------------------------
+    "workbench.colorTheme" = colorTheme;
+    "workbench.iconTheme" = iconTheme;
 
     # --------------------------------------------------------------------------
     # nix settings

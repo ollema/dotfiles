@@ -27,4 +27,4 @@ with pkgs;
 
   # nix things
   nixfmt
-] ++ (with pkgs.nerdfonts; [ (override { fonts = [ "Iosevka" ]; }) ])
+] ++ (with pkgs.nerdfonts; [ (override { fonts = [ "CascadiaCode" "FiraCode" "Iosevka" ]; }) ])
