@@ -29,12 +29,20 @@ in {
     tomoki1207.pdf
     tyriar.sort-lines
     usernamehw.errorlens
+
+    (extension {
+      publisher = "moalamri";
+      name = "inline-fold";
+      version = "0.2.3";
+      sha256 = "sha256-7PiLC60KUVgRMlTaAjPCFmiEj4QiMgktzdr16PcDrQM=";
+    })
   ];
 
   userSettings = {
     # --------------------------------------------------------------------------
     # editor settings
     # --------------------------------------------------------------------------
+    "editor.cursorBlinking" = "phase";
     "editor.detectIndentation" = false;
     "editor.fontFamily" = font;
     "editor.fontLigatures" = false;
@@ -49,6 +57,12 @@ in {
     # explorer settings
     # --------------------------------------------------------------------------
     "explorer.excludeGitIgnore" = true;
+
+    # --------------------------------------------------------------------------
+    # files settings
+    # --------------------------------------------------------------------------
+    "files.trimTrailingWhitespace" = true;
+    "files.insertFinalNewline" = true;
 
     # --------------------------------------------------------------------------
     # search settings
