@@ -3,53 +3,52 @@
   # general ui/ux
   # ----------------------------------------------------------------------------
   # expand save panel by default
-  system.defaults.NSGlobalDomain.NSNavPanelExpandedStateForSaveMode = true;
-  system.defaults.NSGlobalDomain.NSNavPanelExpandedStateForSaveMode2 = true;
+  NSGlobalDomain.NSNavPanelExpandedStateForSaveMode = true;
+  NSGlobalDomain.NSNavPanelExpandedStateForSaveMode2 = true;
 
   # expand print panel by default
-  system.defaults.NSGlobalDomain.PMPrintingExpandedStateForPrint = true;
-  system.defaults.NSGlobalDomain.PMPrintingExpandedStateForPrint2 = true;
+  NSGlobalDomain.PMPrintingExpandedStateForPrint = true;
+  NSGlobalDomain.PMPrintingExpandedStateForPrint2 = true;
 
   # save to disk (not to iCloud) by default
-  system.defaults.NSGlobalDomain.NSDocumentSaveNewDocumentsToCloud = true;
+  NSGlobalDomain.NSDocumentSaveNewDocumentsToCloud = true;
 
   # ----------------------------------------------------------------------------
   # mouse and keyboard
   # ----------------------------------------------------------------------------
-  # Disable automatic capitalization as it’s annoying when typing code
-  system.defaults.NSGlobalDomain.NSAutomaticCapitalizationEnabled = false;
+  # disable automatic capitalization as it’s annoying when typing code
+  NSGlobalDomain.NSAutomaticCapitalizationEnabled = false;
 
-  # Disable smart dashes as they’re annoying when typing code
-  system.defaults.NSGlobalDomain.NSAutomaticDashSubstitutionEnabled = false;
+  # disable smart dashes as they’re annoying when typing code
+  NSGlobalDomain.NSAutomaticDashSubstitutionEnabled = false;
 
-  # Disable automatic period substitution as it’s annoying when typing code
-  system.defaults.NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = false;
+  # disable automatic period substitution as it’s annoying when typing code
+  NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = false;
 
-  # Disable smart quotes as they’re annoying when typing code
-  system.defaults.NSGlobalDomain.NSAutomaticQuoteSubstitutionEnabled = false;
+  # disable smart quotes as they’re annoying when typing code
+  NSGlobalDomain.NSAutomaticQuoteSubstitutionEnabled = false;
 
-  # Disable auto-correct
-  system.defaults.NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
+  # disable auto-correct
+  NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
 
-  # Disable “natural” (Lion-style) scrolling
-  system.defaults.NSGlobalDomain."com.apple.swipescrolldirection" = false;
+  # enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
+  NSGlobalDomain.AppleKeyboardUIMode = 3;
 
-  # Enable full keyboard access for all controls
-  # (e.g. enable Tab in modal dialogs)
-  system.defaults.NSGlobalDomain.AppleKeyboardUIMode = 3;
+  # disable press-and-hold for keys in favor of key repeat
+  NSGlobalDomain.ApplePressAndHoldEnabled = false;
 
-  # Disable press-and-hold for keys in favor of key repeat
-  system.defaults.NSGlobalDomain.ApplePressAndHoldEnabled = false;
+  # set a blazingly fast keyboard repeat rate
+  NSGlobalDomain.InitialKeyRepeat = 15;
+  NSGlobalDomain.KeyRepeat = 1;
 
-  # Set a blazingly fast keyboard repeat rate
-  system.defaults.NSGlobalDomain.InitialKeyRepeat = 15;
-  system.defaults.NSGlobalDomain.KeyRepeat = 1;
+  # enable trackpad tap to click
+  NSGlobalDomain."com.apple.mouse.tapBehavior" = 1;
 
   # ----------------------------------------------------------------------------
   # dock
   # ----------------------------------------------------------------------------
-  # Automatically hide and show the dock
-  system.defaults.dock.autohide = true;
-  # Don't show recent applications in the dock
-  system.defaults.dock.show-recents = false;
+  # automatically hide and show the dock
+  dock.autohide = true;
+  # don't show recent applications in the dock
+  dock.show-recents = false;
 }

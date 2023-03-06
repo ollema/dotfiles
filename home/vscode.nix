@@ -42,7 +42,7 @@ in {
     "editor.formatOnSave" = true;
     "editor.inlineSuggest.enabled" = true;
     "editor.insertSpaces" = true;
-    "editor.rulers" = [ 80 100 120 ];
+    "editor.rulers" = [ ];
     "editor.tabSize" = 2;
 
     # --------------------------------------------------------------------------
