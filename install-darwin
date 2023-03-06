@@ -48,7 +48,7 @@ create_run_directory() {
     echo "/run directory already exists"
   else
     echo -e "run\tprivate/var/run" | sudo tee -a /etc/synthetic.conf
-    /System/Library/Filesystems/apfs.fs/Contents/Resources/apfs.util -t
+    sudo /System/Library/Filesystems/apfs.fs/Contents/Resources/apfs.util -t
     echo "/run directory created"
   fi
 }

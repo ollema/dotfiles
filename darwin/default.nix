@@ -9,10 +9,6 @@
 
   # enable fish
   programs.fish.enable = true;
-  
-  # enable other shells
-  programs.zsh.enable = true;
-  programs.bash.enable = true;
 
   # configure /etc/shells to include fish
   environment.shells = [ pkgs.fish ];
@@ -22,8 +18,17 @@
 
   # enable nix-daemon
   services.nix-daemon.enable = true;
+
+  # nix settings
+  nix.settings.auto-optimise-store = false;
   nix.useDaemon = true;
 
   # allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  homebrew = {
+    enable = true;
+    onActivation.upgrade = true;
+    casks = [ "autodesk-fusion360" "discord" "guitar-pro" "raycast" "rectangle" ];
+  };
 }
