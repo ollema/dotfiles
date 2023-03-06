@@ -52,7 +52,7 @@
   # don't show recent applications in the dock
   dock.show-recents = false;
   # set dock tilesize (default is 64)
-  dock.tilesize = 32;
+  dock.tilesize = 48;
 
   # ----------------------------------------------------------------------------
   # finder

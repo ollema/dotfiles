@@ -39,11 +39,5 @@
   system.defaults = import ./macos.nix;
 
   # homebrew packages
-  homebrew = {
-    enable = true;
-    onActivation.autoUpdate = true;
-    onActivation.upgrade = true;
-    onActivation.cleanup = "zap";
-    casks = [ "autodesk-fusion360" "discord" "guitar-pro" "raycast" "rectangle" ];
-  };
+  homebrew = import ./homebrew.nix;
 }
