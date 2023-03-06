@@ -4,6 +4,9 @@
 
 set -euo pipefail
 
+DOTFILES_REPO="https://github.com/ollema/dotfiles.git"
+HOSTNAME="$(hostname)"
+
 sudo_prompt() {
   echo "please enter your password for sudo authentication"
   sudo -k
@@ -54,10 +57,10 @@ create_run_directory() {
 }
 
 clone_repository() {
-  if ! grep -q "https://github.com/ollema/dotfiles.git" "${HOME}/dotfiles/.git/config"
+  if ! grep -q "${DOTFILES_REPO}" "${HOME}/dotfiles/.git/config"
   then
     rm -rf "${HOME}/dotfiles"
-    git clone "https://github.com/ollema/dotfiles.git" "${HOME}/dotfiles"
+    git clone "${DOTFILES_REPO}" "${HOME}/dotfiles"
   fi
   echo "dotfiles repo cloned"
 }
@@ -70,10 +73,10 @@ darwin_build() {
         sudo mv "${filepath}" "${filepath}.backup-before-nix-darwin"
       fi
     done
-    
+
     cd "${HOME}/dotfiles"
-    
-    nix build .#darwinConfigurations.mDYXPYMR2PF.system --extra-experimental-features "nix-command flakes"
+
+    nix build ".#darwinConfigurations.${HOSTNAME}.system" --extra-experimental-features "nix-command flakes"
     ./result/sw/bin/darwin-rebuild switch --flake .
   }
   echo "nix-darwin built and activated!"
