@@ -1,3 +1,5 @@
+{ homeDirectory, ... }:
+
 {
   enable = true;
 
@@ -27,4 +29,19 @@
   };
 
   functions.fish_greeting = "";
+
+  interactiveShellInit = ''
+    # load environment variables from ${homeDirectory}/.env
+    if test -f ${homeDirectory}/.env
+      source ${homeDirectory}/.env
+    end
+
+    # load iterm2 shell integration
+    if test -f ${homeDirectory}/.iterm2_shell_integration.fish
+      source ${homeDirectory}/.iterm2_shell_integration.fish
+    end
+
+    # init homebrew
+    eval (/opt/homebrew/bin/brew shellenv)
+  '';
 }

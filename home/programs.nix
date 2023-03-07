@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ homeDirectory, pkgs, ... }:
 
 {
   # fancy cat replacement
@@ -24,7 +24,7 @@
   };
 
   # fish shell
-  fish = import ./fish.nix;
+  fish = import ./fish.nix { inherit homeDirectory; };
 
   # git
   git = import ./git.nix;

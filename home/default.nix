@@ -11,5 +11,5 @@ in {
   home = { inherit homeDirectory packages stateVersion username; };
 
   # packages loaded into $PATH but configured by home-manager
-  programs = import ./programs.nix { inherit pkgs; };
+  programs = import ./programs.nix { inherit homeDirectory pkgs; };
 }
