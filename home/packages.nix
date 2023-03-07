@@ -9,7 +9,7 @@ with pkgs;
   # utils
   bottom # fancy version of `top`
   choose # cut alternative
-  dog # fancy version of `dig`
+  dogdns # fancy version of `dig`
   duf # fancy version of `df`
   fd # fancy version of `find`
   fzf # fuzzy finder
@@ -24,8 +24,8 @@ with pkgs;
   tealdeer # rust implementation of `tldr`
 
   # terminal
-  iterm2
+  iterm2 # terminal emulator of choice
 
   # nix things
-  nixfmt
+  nixfmt # formatting tool for this and other nix files
 ] ++ (with pkgs.nerdfonts; [ (override { fonts = [ "CascadiaCode" "FiraCode" "Iosevka" ]; }) ])
