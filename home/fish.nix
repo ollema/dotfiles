@@ -43,5 +43,8 @@
 
     # init homebrew
     eval (/opt/homebrew/bin/brew shellenv)
+
+    # disable direnv prompt
+    set -gx DIRENV_LOG_FORMAT ""
   '';
 }

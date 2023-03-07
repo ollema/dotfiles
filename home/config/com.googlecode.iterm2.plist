@@ -361,6 +361,8 @@
 	</dict>
 	<key>Default Bookmark Guid</key>
 	<string>269A7BB6-F7F7-4271-AFEE-0D1D6E464BD7</string>
+	<key>DimOnlyText</key>
+	<true/>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HideTab</key>
@@ -633,6 +635,8 @@
 				<key>Red Component</key>
 				<real>0.83741801977157593</real>
 			</dict>
+			<key>Brighten Bold Text</key>
+			<true/>
 			<key>Character Encoding</key>
 			<integer>4</integer>
 			<key>Close Sessions On End</key>
@@ -1146,6 +1150,8 @@
 	</dict>
 	<key>SoundForEsc</key>
 	<false/>
+	<key>SplitPaneDimmingAmount</key>
+	<real>0.5</real>
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>5</integer>
 	<key>VisualIndicatorForEsc</key>
