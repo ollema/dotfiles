@@ -9,7 +9,7 @@ fully-declarative system configuration using `nix` and `nix-darwin` - with flake
 3. run install script:
 
 ```bash
-curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/ollema/dotfiles/main/install-darwin | bash
+curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/ollema/dotfiles/main/install-darwin.bash | bash
 ```
 
 4. maybe update login shell with `chsh -s` even though it should not be needed
