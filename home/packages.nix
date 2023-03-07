@@ -4,6 +4,7 @@ with pkgs;
 [
   # git
   delta # git diff viewer
+  git-review # git review tool
 
   # utils
   bottom # fancy version of `top`
