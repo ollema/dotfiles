@@ -20,7 +20,7 @@
   exa = {
     enable = true;
     enableAliases = true;
-    icons = true;
+    # icons = true; disable for now
   };
 
   # fish shell
