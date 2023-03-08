@@ -6,6 +6,12 @@ with pkgs;
   delta # git diff viewer
   git-review # git review tool
 
+  # terminal
+  iterm2 # terminal emulator of choice
+
+  # messaging
+  element-desktop # matrix client
+
   # utils
   bottom # fancy version of `top`
   choose # cut alternative
@@ -22,9 +28,6 @@ with pkgs;
   procs # fancy version of `ps`
   ripgrep # fancy version of `grep`
   tealdeer # rust implementation of `tldr`
-
-  # terminal
-  iterm2 # terminal emulator of choice
 
   # nix things
   nixfmt # formatting tool for this and other nix files
