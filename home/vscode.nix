@@ -23,7 +23,11 @@ in {
     esbenp.prettier-vscode
     github.copilot
     mkhl.direnv
+    ms-python.python
+    ms-python.vscode-pylance
+    ms-vscode-remote.remote-ssh
     pkief.material-icon-theme
+    skellock.just
     svelte.svelte-vscode
     timonwong.shellcheck
     tomoki1207.pdf
