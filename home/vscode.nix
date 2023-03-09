@@ -15,7 +15,7 @@ in {
   # ----------------------------------------------------------------------------
   # extensions
   # ----------------------------------------------------------------------------
-  mutableExtensionsDir = false;
+  mutableExtensionsDir = true;
   extensions = with pkgs.vscode-extensions; [
     bbenoist.nix
     bradlc.vscode-tailwindcss
@@ -39,6 +39,13 @@ in {
       name = "inline-fold";
       version = "0.2.3";
       sha256 = "sha256-7PiLC60KUVgRMlTaAjPCFmiEj4QiMgktzdr16PcDrQM=";
+    })
+
+    (extension {
+      publisher = "ms-vscode-remote";
+      name = "remote-containers";
+      version = "0.283.0";
+      sha256 = "sha256-LaZzDLfQHFaOnkvKzq0vmUvAi+Q6sJrJPlAhWX0fY40=";
     })
   ];
 
