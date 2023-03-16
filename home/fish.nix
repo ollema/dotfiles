@@ -16,7 +16,7 @@
   };
 
   shellAbbrs = {
-    gs = "git status -sb";
+    gs = "git status";
     ga = "git add .";
     gc = "git commit";
     gcm = "git commit -m";
@@ -26,6 +26,8 @@
     gl = "git l";
     gd = "git diff";
     gf = "git fetch";
+
+    tfn = "tail -f -n100";
   };
 
   functions.fish_greeting = "";
