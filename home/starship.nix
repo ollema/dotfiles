@@ -42,7 +42,7 @@
     };
 
     hostname = {
-      format = "@ [$hostname]($style) ";
+      format = "@[$hostname]($style) ";
       style = "bright-black";
     };
 
@@ -52,7 +52,7 @@
     };
 
     username = {
-      format = "[$user]($style) ";
+      format = "[$user]($style)";
       style_user = "bright-black";
     };
   };

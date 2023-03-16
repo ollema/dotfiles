@@ -1,8 +1,14 @@
 # justfile for dotfiles
 
-# rebuild system
-rebuild:
-  darwin-rebuild --flake . switch
+configuration_manager_command := if os() == "macos" { "darwin-rebuild" } else { "home-manager" }
+
+# build new configuration
+build:
+  {{ configuration_manager_command }} build --flake .
+
+# build and switch to new configuration
+switch:
+  {{ configuration_manager_command }} switch --flake .
 
 # update flake
 update:
