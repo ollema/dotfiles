@@ -9,36 +9,54 @@
 
   outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs:
     let
-      # constants 
-      username = "s0001325";
-      hostname = "mDYXPYMR2PF";
-      homeDirectory = "/Users/${username}";
-      system = "aarch64-darwin";
       stateVersion = "22.11";
 
-      # nixpkgs
-      pkgs = import nixpkgs {
-        inherit system;
-        config = {
-          allowUnfree = true; # for vscode and other unfree pkgs
-          xdg = { configHome = homeDirectory; }; # TODO: not sure if this is needed
+      mkPkgs = { system, homeDirectory }:
+        import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+          xdg.configHome = homeDirectory;
         };
-      };
-
-      # modules
-      home-manager-user-module = import ./home { inherit homeDirectory pkgs stateVersion system username; };
-      nix-darwin-module = import ./darwin { inherit homeDirectory pkgs username; };
     in {
-      darwinConfigurations.${hostname} = darwin.lib.darwinSystem {
+      # --------------------------------------------------------------------------
+      # nix-darwin configurations (includes home-manager!)
+      # --------------------------------------------------------------------------
+      # 14" M1 MacBook Pro
+      darwinConfigurations.mDYXPYMR2PF = let
+        username = "s0001325";
+        homeDirectory = "/Users/${username}";
+        system = "aarch64-darwin";
+        pkgs = mkPkgs { inherit system homeDirectory; };
+      in darwin.lib.darwinSystem {
         inherit system;
         modules = [
-          nix-darwin-module
+          # nix-darwin module
+          (import ./darwin { inherit homeDirectory pkgs username; })
+          # home-manager module
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = home-manager-user-module;
+            home-manager.users.${username} =
+              (import ./home { inherit homeDirectory pkgs stateVersion system username; });
           }
+        ];
+      };
+
+      # --------------------------------------------------------------------------
+      # home-manager configurations (for linux servers)
+      # --------------------------------------------------------------------------
+      # dlos-server
+      homeConfigurations.a0001325 = let
+        username = "a0001325";
+        homeDirectory = "/home/${username}";
+        system = "x86_64-linux";
+        pkgs = mkPkgs { inherit system homeDirectory; };
+      in {
+        inherit system;
+        modules = [
+          # home-manager module
+          (import ./home { inherit homeDirectory pkgs stateVersion system username; })
         ];
       };
     };
