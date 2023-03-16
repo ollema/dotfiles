@@ -29,6 +29,9 @@
   # git
   git = import ./git.nix;
 
+  # home-manager
+  home-manager = if pkgs.stdenv.isDarwin then { enable = false; } else { enable = true; };
+
   # starship prompt
   starship = import ./starship.nix;
 
