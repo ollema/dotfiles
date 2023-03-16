@@ -59,7 +59,7 @@
           lib = pkgs.lib;
         in
         home-manager.lib.homeManagerConfiguration {
-          inherit pkgs system;
+          inherit pkgs;
           modules = [
             # home-manager module
             (import ./home { inherit homeDirectory lib pkgs stateVersion username; })
