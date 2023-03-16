@@ -14,6 +14,11 @@
       vimcmd_symbol = "[❮](green)";
     };
 
+    cmd_duration = {
+      format = "[$duration]($style) ";
+      style = "yellow";
+    };
+
     git_branch = {
       format = "[$branch]($style)";
       style = "bright-black";
@@ -36,14 +41,19 @@
       style = "bright-black";
     };
 
-    cmd_duration = {
-      format = "[$duration]($style) ";
-      style = "yellow";
+    hostname = {
+      format = "@ [$hostname]($style) ";
+      style = "bright-black";
     };
 
     python = {
       format = "[$virtualenv]($style) ";
       style = "bright-black";
+    };
+
+    username = {
+      format = "[$user]($style) ";
+      style_user = "bright-black";
     };
   };
 }
