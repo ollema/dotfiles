@@ -58,7 +58,7 @@
           pkgs = mkPkgs { inherit system homeDirectory; };
           lib = pkgs.lib;
         in
-        {
+        home-manager.lib.homeManagerConfiguration {
           inherit system;
           modules = [
             # home-manager module
