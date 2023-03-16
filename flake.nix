@@ -10,13 +10,6 @@
   outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs:
     let
       stateVersion = "22.11";
-
-      mkPkgs = { system, homeDirectory }:
-        import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-          xdg.configHome = homeDirectory;
-        };
     in
     {
       # --------------------------------------------------------------------------
