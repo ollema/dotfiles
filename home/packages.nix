@@ -1,34 +1,45 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
-with pkgs;
-[
-  # git
-  delta # git diff viewer
-  git-review # git review tool
+let
+  bin = import ./bin.nix { inherit pkgs; };
 
-  # terminal
-  iterm2 # terminal emulator of choice
+  darwinSpecific = with pkgs; [
+    # terminal
+    iterm2 # terminal emulator of choice
+    # messaging
+    element-desktop # matrix client
+  ] ++ (with pkgs.nerdfonts; [ (override { fonts = [ "CascadiaCode" "FiraCode" "Iosevka" ]; }) ]);
 
-  # messaging
-  element-desktop # matrix client
+  utils = with pkgs; [
+    # utils
+    bottom # fancy version of `top`
+    choose # cut alternative
+    dogdns # fancy version of `dig`
+    duf # fancy version of `df`
+    fd # fancy version of `find`
+    fzf # fuzzy finder
+    glow # markdown viewer
+    htop # another fancy version of `top`
+    httpie # http client
+    hyperfine # benchmarking tool
+    just # task runner
+    jq # json parser
+    procs # fancy version of `ps`
+    ripgrep # fancy version of `grep`
+    tealdeer # rust implementation of `tldr`
+  ];
 
-  # utils
-  bottom # fancy version of `top`
-  choose # cut alternative
-  dogdns # fancy version of `dig`
-  duf # fancy version of `df`
-  fd # fancy version of `find`
-  fzf # fuzzy finder
-  glow # markdown viewer
-  htop # another fancy version of `top`
-  httpie # http client
-  hyperfine # benchmarking tool
-  just # task runner
-  jq # json parser
-  procs # fancy version of `ps`
-  ripgrep # fancy version of `grep`
-  tealdeer # rust implementation of `tldr`
+  gitTools = with pkgs; [
+    delta # git diff viewer
+    git-review # git review tool
+  ];
 
-  # nix things
-  nixfmt # formatting tool for this and other nix files
-] ++ (with pkgs.nerdfonts; [ (override { fonts = [ "CascadiaCode" "FiraCode" "Iosevka" ]; }) ])
+  nixTools = with pkgs; [
+    nixpkgs-fmt # nix formatter
+  ];
+in
+bin
+++ gitTools
+++ utils
+++ nixTools
+++ (lib.optionals pkgs.stdenv.isDarwin darwinSpecific)

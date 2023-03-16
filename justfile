@@ -7,3 +7,7 @@ rebuild:
 # update flake
 update:
   nix flake update
+
+# format .nix files
+format:
+  nixpkgs-fmt .

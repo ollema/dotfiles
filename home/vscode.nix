@@ -10,16 +10,17 @@ let
 
   extension = { publisher, name, version, sha256 }:
     buildVscodeMarketplaceExtension { mktplcRef = { inherit name publisher sha256 version; }; };
-in {
+in
+{
   enable = true;
   # ----------------------------------------------------------------------------
   # extensions
   # ----------------------------------------------------------------------------
   mutableExtensionsDir = true;
   extensions = with pkgs.vscode-extensions; [
+    b4dm4n.vscode-nixpkgs-fmt
     bbenoist.nix
     bradlc.vscode-tailwindcss
-    brettm12345.nixfmt-vscode
     esbenp.prettier-vscode
     github.copilot
     mkhl.direnv
@@ -99,7 +100,6 @@ in {
     # --------------------------------------------------------------------------
     # nix settings
     # --------------------------------------------------------------------------
-    "[nix]" = { "editor.defaultFormatter" = "brettm12345.nixfmt-vscode"; };
-    "nixfmt.path" = "nixfmt -w 120";
+    "[nix]" = { "editor.defaultFormatter" = "B4dM4n.nixpkgs-fmt"; };
   };
 }

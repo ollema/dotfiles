@@ -29,21 +29,9 @@
   # git
   git = import ./git.nix;
 
-  # ssh TODO: fix this when secrets handling is done
-  # ssh = {
-  #   enable = true;
-  #   matchBlocks = [
-  #     {
-  #       host = "hal";
-  #       options = {
-  #       };
-  #     }
-  #   ];
-  # };
-
   # starship prompt
   starship = import ./starship.nix;
 
-  # vscode editor
-  vscode = import ./vscode.nix { inherit pkgs; };
+  # enable vscode editor for darwin only
+  vscode = if pkgs.stdenv.isDarwin then import ./vscode.nix { inherit pkgs; } else { enable = false; };
 }
