@@ -1,5 +1,5 @@
-{ homeDirectory, pkgs, stateVersion, username, ... }:
-{ lib, ... }:
+{ homeDirectory, stateVersion, username, ... }:
+{ lib, pkgs, ... }:
 
 let
   # packages loaded into $PATH

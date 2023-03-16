@@ -28,19 +28,18 @@
           username = "s0001325";
           homeDirectory = "/Users/${username}";
           system = "aarch64-darwin";
-          pkgs = mkPkgs { inherit system homeDirectory; };
         in
         darwin.lib.darwinSystem {
           inherit system;
           modules = [
             # nix-darwin module
-            (import ./darwin { inherit homeDirectory pkgs username; })
+            (import ./darwin { inherit homeDirectory username; })
             # home-manager module
             home-manager.darwinModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.${username} = (import ./home { inherit homeDirectory pkgs stateVersion username; });
+              home-manager.users.${username} = (import ./home { inherit homeDirectory stateVersion username; });
             }
           ];
         };
@@ -54,13 +53,12 @@
           username = "a0001325";
           homeDirectory = "/home/${username}";
           system = "x86_64-linux";
-          pkgs = mkPkgs { inherit system homeDirectory; };
         in
         home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+          pkgs = nixpkgs.legacyPackages.${system};
           modules = [
             # home-manager module
-            (import ./home { inherit homeDirectory pkgs stateVersion username; })
+            (import ./home { inherit homeDirectory stateVersion username; })
           ];
         };
     };

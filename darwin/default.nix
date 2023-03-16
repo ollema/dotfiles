@@ -1,4 +1,5 @@
-{ homeDirectory, pkgs, username, ... }:
+{ homeDirectory, username, ... }:
+{ pkgs, ... }:
 
 {
   # configure user
@@ -14,7 +15,7 @@
   environment.shells = [ pkgs.fish ];
 
   # silence shell welcome with .hushlogin and set default shell to fish.
-  # TODO: think this is needed because users.users.${username}.shell 
+  # TODO: think this is needed because users.users.${username}.shell
   # does not do actually change the login shell of (existing?) users
   system.activationScripts.extraActivation.text = "touch ${homeDirectory}/.hushlogin && chsh -s ${pkgs.fish}/bin/fish;";
 
