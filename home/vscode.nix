@@ -48,6 +48,13 @@ in
       version = "0.283.0";
       sha256 = "sha256-LaZzDLfQHFaOnkvKzq0vmUvAi+Q6sJrJPlAhWX0fY40=";
     })
+
+    (extension {
+      publisher = "charliermarsh";
+      name = "ruff";
+      version = "2023.10.0";
+      sha256 = "sha256-fL6ylJJu2kygMNxmJdBJ4SSmj5dJwL749hCsMHcQiqw=";
+    })
   ];
 
   userSettings = {
@@ -108,7 +115,20 @@ in
     # python settings
     # --------------------------------------------------------------------------
     "[python]" = {
+      # standard tab size for python
       "editor.tabSize" = 4;
+      # fix problems with ruff on save but use isort for sorting imports
+      "editor.codeActionsOnSave" = {
+        "source.fixAll" = true;
+        "source.organizeImports" = true;
+      };
     };
+    # configure black
+    "python.formatting.provider" = "black";
+    "python.formatting.blackArgs" = [ "--line-length=100" ];
+    "python.formatting.blackPath" = "${pkgs.black}/bin/black";
+    # configure ruff
+    "ruff.path" = [ "${pkgs.ruff}/bin/ruff" ];
+    "ruff.organizeImports" = false;
   };
 }

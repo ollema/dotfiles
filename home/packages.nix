@@ -34,14 +34,21 @@ let
   gitTools = with pkgs; [
     delta # git diff viewer
     git-review # git review tool
+    pre-commit # git pre-commit hook manager
   ];
 
   nixTools = with pkgs; [
     nixpkgs-fmt # nix formatter
+  ];
+
+  pythonTools = with pkgs; [
+    black # formatter
+    ruff # linter
   ];
 in
 bin
 ++ gitTools
 ++ utils
 ++ nixTools
+++ pythonTools
 ++ (lib.optionals pkgs.stdenv.isDarwin darwinSpecific)
