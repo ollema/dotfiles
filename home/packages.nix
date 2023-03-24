@@ -8,6 +8,8 @@ let
     iterm2 # terminal emulator of choice
     # messaging
     element-desktop # matrix client
+    # additionnal python installation
+    python312 # python 3.12
   ] ++ (with pkgs.nerdfonts; [ (override { fonts = [ "CascadiaCode" "FiraCode" "Iosevka" ]; }) ]);
 
   utils = with pkgs; [
