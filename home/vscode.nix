@@ -3,7 +3,7 @@
 let
   font = "CaskaydiaCove Nerd Font Mono";
   terminalFont = "CaskaydiaCove Nerd Font Mono";
-  colorTheme = "Visual Studio Dark+";
+  colorTheme = "Dark+";
   iconTheme = "material-icon-theme";
 
   inherit (pkgs.vscode-utils) buildVscodeMarketplaceExtension;
@@ -100,6 +100,15 @@ in
     # --------------------------------------------------------------------------
     # nix settings
     # --------------------------------------------------------------------------
-    "[nix]" = { "editor.defaultFormatter" = "B4dM4n.nixpkgs-fmt"; };
+    "[nix]" = {
+      "editor.defaultFormatter" = "B4dM4n.nixpkgs-fmt";
+    };
+
+    # --------------------------------------------------------------------------
+    # python settings
+    # --------------------------------------------------------------------------
+    "[python]" = {
+      "editor.tabSize" = 4;
+    };
   };
 }
