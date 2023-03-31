@@ -3,7 +3,7 @@
 let
   font = "CaskaydiaCove Nerd Font Mono";
   terminalFont = "CaskaydiaCove Nerd Font Mono";
-  colorTheme = "Dark+";
+  colorTheme = "Default Dark+";
   iconTheme = "material-icon-theme";
 
   inherit (pkgs.vscode-utils) buildVscodeMarketplaceExtension;
