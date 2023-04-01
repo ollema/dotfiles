@@ -38,7 +38,7 @@ let
   ];
 
   mlTools = with pkgs; [
-    python311Packages.tensorboard # tensorboard
+    python310Packages.tensorboard # tensorboard
   ];
 
   nixTools = with pkgs; [
