@@ -37,10 +37,6 @@ let
     pre-commit # git pre-commit hook manager
   ];
 
-  mlTools = with pkgs; [
-    python310Packages.tensorboard # tensorboard
-  ];
-
   nixTools = with pkgs; [
     nixpkgs-fmt # nix formatter
   ];
@@ -54,6 +50,5 @@ bin
 ++ gitTools
 ++ utils
 ++ nixTools
-++ mlTools
 ++ pythonTools
 ++ (lib.optionals pkgs.stdenv.isDarwin darwinSpecific)
