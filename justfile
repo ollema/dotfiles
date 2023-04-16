@@ -1,5 +1,6 @@
 # justfile for dotfiles
 
+# set configuration manager command based on operating system
 configuration_manager_command := if os() == "macos" { "darwin-rebuild" } else { "home-manager" }
 
 # build new configuration
@@ -17,3 +18,7 @@ update:
 # format .nix files
 format:
   nixpkgs-fmt .
+
+# clean up and garbage collect nix store
+clean:
+  nix-collect-garbage -d

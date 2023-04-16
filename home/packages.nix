@@ -37,6 +37,10 @@ let
     pre-commit # git pre-commit hook manager
   ];
 
+  jsTools = with pkgs.nodePackages; [
+    pnpm # node package manager
+  ];
+
   nixTools = with pkgs; [
     nixpkgs-fmt # nix formatter
   ];
@@ -47,8 +51,9 @@ let
   ];
 in
 bin
-++ gitTools
 ++ utils
+++ gitTools
+++ jsTools
 ++ nixTools
 ++ pythonTools
 ++ (lib.optionals pkgs.stdenv.isDarwin darwinSpecific)
