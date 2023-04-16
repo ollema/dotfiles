@@ -130,5 +130,10 @@ in
     # configure ruff
     "ruff.path" = [ "${pkgs.ruff}/bin/ruff" ];
     "ruff.organizeImports" = false;
+
+    # --------------------------------------------------------------------------
+    # svelte settings
+    # --------------------------------------------------------------------------
+    "svelte.enable-ts-plugin" = true;
   };
 }
