@@ -26,6 +26,7 @@ let
     hyperfine # benchmarking tool
     just # task runner
     jq # json parser
+    ngrok # tunnel
     procs # fancy version of `ps`
     ripgrep # fancy version of `grep`
     tealdeer # rust implementation of `tldr`
