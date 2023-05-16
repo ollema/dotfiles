@@ -20,7 +20,7 @@
   exa = {
     enable = true;
     enableAliases = true;
-    # icons = true; disable for now
+    extraOptions = [ "--group-directories-first" "--header" ];
   };
 
   # fish shell
