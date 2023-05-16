@@ -38,8 +38,9 @@ let
     pre-commit # git pre-commit hook manager
   ];
 
-  jsTools = with pkgs.nodePackages; [
-    pnpm # node package manager
+  jsTools = with pkgs; [
+    nodejs # node (currently node 18)
+    nodePackages.pnpm # node package manager
   ];
 
   nixTools = with pkgs; [

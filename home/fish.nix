@@ -45,5 +45,9 @@
 
     # disable direnv prompt
     set -gx DIRENV_LOG_FORMAT ""
+
+    # set pnpm environment variables
+    set -gx PNPM_HOME ${homeDirectory}/Library/pnpm
+    set -gx PATH "$PNPM_HOME" $PATH
   '';
 }
