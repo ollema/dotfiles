@@ -22,10 +22,13 @@ in
     bbenoist.nix
     bradlc.vscode-tailwindcss
     esbenp.prettier-vscode
+    dbaeumer.vscode-eslint
     github.copilot
     mkhl.direnv
+    ms-azuretools.vscode-docker
     ms-python.python
     ms-python.vscode-pylance
+    ms-vscode.makefile-tools
     ms-vscode-remote.remote-ssh
     pkief.material-icon-theme
     skellock.just
@@ -34,26 +37,27 @@ in
     tomoki1207.pdf
     tyriar.sort-lines
     usernamehw.errorlens
+    waderyan.gitblame
 
     (extension {
       publisher = "moalamri";
       name = "inline-fold";
-      version = "0.2.3";
-      sha256 = "sha256-7PiLC60KUVgRMlTaAjPCFmiEj4QiMgktzdr16PcDrQM=";
+      version = "0.2.4";
+      sha256 = "sha256-oi/RjtnwallpOIzPwuoA22BjuBrKQMWSIBL+1KHTXq8=";
     })
 
     (extension {
       publisher = "ms-vscode-remote";
       name = "remote-containers";
-      version = "0.283.0";
-      sha256 = "sha256-LaZzDLfQHFaOnkvKzq0vmUvAi+Q6sJrJPlAhWX0fY40=";
+      version = "0.293.0";
+      sha256 = "sha256-O0hM+GKZ46moihBlPvfNuqfLazR5WVqEaE6XiEnaNN0=";
     })
 
     (extension {
       publisher = "charliermarsh";
       name = "ruff";
-      version = "2023.10.0";
-      sha256 = "sha256-fL6ylJJu2kygMNxmJdBJ4SSmj5dJwL749hCsMHcQiqw=";
+      version = "2023.17.11351528";
+      sha256 = "sha256-ZM9iyQCI3hdVj2w2wxXUYTZp8b9XmfTsft5MuGwEF98=";
     })
   ];
 
