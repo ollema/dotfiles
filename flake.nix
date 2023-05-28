@@ -5,9 +5,10 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    rust-overlay.url = "github:oxalica/rust-overlay";
   };
 
-  outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, darwin, home-manager, rust-overlay, ... }@inputs:
     let
       stateVersion = "22.11";
     in
@@ -34,6 +35,10 @@
               home-manager.useUserPackages = true;
               home-manager.users.${username} = (import ./home { inherit homeDirectory stateVersion username; });
             }
+            ({ pkgs, ... }: {
+              nixpkgs.overlays = [ rust-overlay.overlays.default ];
+              environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
+            })
           ];
         };
 

@@ -31,6 +31,7 @@ in
     ms-vscode.makefile-tools
     ms-vscode-remote.remote-ssh
     pkief.material-icon-theme
+    rust-lang.rust-analyzer
     skellock.just
     svelte.svelte-vscode
     timonwong.shellcheck
@@ -141,6 +142,13 @@ in
     # configure ruff
     "ruff.path" = [ "${pkgs.ruff}/bin/ruff" ];
     "ruff.organizeImports" = false;
+
+    # --------------------------------------------------------------------------
+    # rust settings
+    # --------------------------------------------------------------------------
+    "[rust]" = {
+      "editor.defaultFormatter" = "rust-lang.rust-analyzer";
+    };
 
     # --------------------------------------------------------------------------
     # svelte settings
