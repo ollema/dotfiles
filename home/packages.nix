@@ -18,12 +18,14 @@ let
     choose # cut alternative
     dogdns # fancy version of `dig`
     duf # fancy version of `df`
+    ffmpeg # what can it not to?
     fd # fancy version of `find`
     fzf # fuzzy finder
     glow # markdown viewer
     htop # another fancy version of `top`
     httpie # http client
     hyperfine # benchmarking tool
+    imagemagick # convert bitmap images
     just # task runner
     jq # json parser
     ngrok # tunnel

@@ -58,7 +58,7 @@ in
       publisher = "charliermarsh";
       name = "ruff";
       version = "2023.17.11351528";
-      sha256 = "sha256-ZM9iyQCI3hdVj2w2wxXUYTZp8b9XmfTsft5MuGwEF98=";
+      sha256 = "sha256-GMa3xMrPz3EEyPWTNSLzdZU3zKcVvbLmMVdStSHc8V4=";
     })
   ];
 
