@@ -11,6 +11,7 @@
     "firefox"
     "google-chrome"
     "guitar-pro"
+    "inkscape"
     "raycast"
     "rectangle"
     "spotify"
