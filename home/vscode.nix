@@ -50,15 +50,22 @@ in
     (extension {
       publisher = "ms-vscode-remote";
       name = "remote-containers";
-      version = "0.293.0";
-      sha256 = "sha256-O0hM+GKZ46moihBlPvfNuqfLazR5WVqEaE6XiEnaNN0=";
+      version = "0.296.0";
+      sha256 = "sha256-VQkygGcE6dyyz5XsTRSN08vFF0Onx537Nnh7MawRdbo=";
     })
 
     (extension {
       publisher = "charliermarsh";
       name = "ruff";
-      version = "2023.17.11351528";
-      sha256 = "sha256-GMa3xMrPz3EEyPWTNSLzdZU3zKcVvbLmMVdStSHc8V4=";
+      version = "2023.30.0";
+      sha256 = "sha256-i/gskJ/p6gl0B1a8ZGWMN/TSPqS5h/TEEljgPZ9D8tw=";
+    })
+
+    (extension {
+      publisher = "qufiwefefwoyn";
+      name = "inline-sql-syntax";
+      version = "2.16.0";
+      sha256 = "sha256-QAbYWwA6xlRfyqA/JBEUlxVt9q7RGbm0bLBkb4szYcA=";
     })
   ];
 
