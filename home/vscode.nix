@@ -57,8 +57,8 @@ in
     (extension {
       publisher = "charliermarsh";
       name = "ruff";
-      version = "2023.30.0";
-      sha256 = "sha256-i/gskJ/p6gl0B1a8ZGWMN/TSPqS5h/TEEljgPZ9D8tw=";
+      version = "2023.32.0";
+      sha256 = "sha256-Qu7olXmRw+uSFbvGoLkUlR/6nHgMMfg5g+ePINjPcYQ=";
     })
 
     (extension {
