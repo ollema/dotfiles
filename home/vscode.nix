@@ -165,6 +165,7 @@ in
       {
         "editor.defaultFormatter" = "svelte.svelte-vscode";
       };
+    "inlineFold.autoFold" = true;
 
     # --------------------------------------------------------------------------
     # typescript settings

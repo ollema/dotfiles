@@ -9,6 +9,7 @@
     "bitwarden"
     "discord"
     "firefox"
+    "gimp"
     "google-chrome"
     "guitar-pro"
     "inkscape"
