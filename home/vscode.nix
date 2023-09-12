@@ -21,15 +21,17 @@ in
     b4dm4n.vscode-nixpkgs-fmt
     bbenoist.nix
     bradlc.vscode-tailwindcss
-    esbenp.prettier-vscode
+    charliermarsh.ruff
     dbaeumer.vscode-eslint
+    esbenp.prettier-vscode
     github.copilot
     mkhl.direnv
     ms-azuretools.vscode-docker
+    ms-python.black-formatter
     ms-python.python
     ms-python.vscode-pylance
-    ms-vscode.makefile-tools
     ms-vscode-remote.remote-ssh
+    ms-vscode.makefile-tools
     pkief.material-icon-theme
     rust-lang.rust-analyzer
     skellock.just
@@ -41,24 +43,10 @@ in
     waderyan.gitblame
 
     (extension {
-      publisher = "moalamri";
-      name = "inline-fold";
-      version = "0.2.4";
-      sha256 = "sha256-oi/RjtnwallpOIzPwuoA22BjuBrKQMWSIBL+1KHTXq8=";
-    })
-
-    (extension {
       publisher = "ms-vscode-remote";
       name = "remote-containers";
       version = "0.296.0";
       sha256 = "sha256-VQkygGcE6dyyz5XsTRSN08vFF0Onx537Nnh7MawRdbo=";
-    })
-
-    (extension {
-      publisher = "charliermarsh";
-      name = "ruff";
-      version = "2023.32.0";
-      sha256 = "sha256-Qu7olXmRw+uSFbvGoLkUlR/6nHgMMfg5g+ePINjPcYQ=";
     })
 
     (extension {
@@ -143,12 +131,7 @@ in
       };
     };
     # configure black
-    "python.formatting.provider" = "black";
-    "python.formatting.blackArgs" = [ "--line-length=100" ];
-    "python.formatting.blackPath" = "${pkgs.black}/bin/black";
-    # configure ruff
-    "ruff.path" = [ "${pkgs.ruff}/bin/ruff" ];
-    "ruff.organizeImports" = false;
+    "black-formatter.args" = [ "--line-length=100" ];
 
     # --------------------------------------------------------------------------
     # rust settings
@@ -165,7 +148,6 @@ in
       {
         "editor.defaultFormatter" = "svelte.svelte-vscode";
       };
-    "inlineFold.autoFold" = true;
 
     # --------------------------------------------------------------------------
     # typescript settings
