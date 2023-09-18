@@ -25,7 +25,6 @@ in
     dbaeumer.vscode-eslint
     esbenp.prettier-vscode
     github.copilot
-    mkhl.direnv
     ms-azuretools.vscode-docker
     ms-python.black-formatter
     ms-python.python
@@ -86,7 +85,6 @@ in
     # search settings
     # --------------------------------------------------------------------------
     "search.exclude" = {
-      "**/.direnv" = true;
       "**/.git" = true;
       "**/node_modules" = true;
       "*.lock" = true;
