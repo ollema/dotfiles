@@ -10,14 +10,8 @@
     };
   };
 
-  # easy shell environments
-  direnv = {
-    enable = true;
-    nix-direnv.enable = true;
-  };
-
   # fancy replacement for ls
-  exa = {
+  eza = {
     enable = true;
     enableAliases = true;
     extraOptions = [ "--group-directories-first" "--header" ];

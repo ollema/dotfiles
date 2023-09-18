@@ -6,7 +6,7 @@
   shellAliases = {
     cat = "bat --paging=never";
     find = "fd";
-    # ls, ll, lha... are set by exa in ./programs.nix
+    # ls, ll, lha... are set by eza in ./programs.nix
     reload = "exec fish";
 
     dlos-server = "ssh -t dlos-server 'tmux -CC new -A -s main'";
@@ -42,9 +42,6 @@
     if test -f ${homeDirectory}/.iterm2_shell_integration.fish
       source ${homeDirectory}/.iterm2_shell_integration.fish
     end
-
-    # disable direnv prompt
-    set -gx DIRENV_LOG_FORMAT ""
 
     # set pnpm environment variables
     set -gx PNPM_HOME ${homeDirectory}/Library/pnpm

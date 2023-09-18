@@ -13,6 +13,7 @@
     "google-chrome"
     "guitar-pro"
     "inkscape"
+    "insomnia"
     "raycast"
     "rectangle"
     "spotify"

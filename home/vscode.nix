@@ -33,7 +33,6 @@ in
     ms-vscode-remote.remote-ssh
     ms-vscode.makefile-tools
     pkief.material-icon-theme
-    rust-lang.rust-analyzer
     skellock.just
     svelte.svelte-vscode
     timonwong.shellcheck
@@ -132,13 +131,6 @@ in
     };
     # configure black
     "black-formatter.args" = [ "--line-length=100" ];
-
-    # --------------------------------------------------------------------------
-    # rust settings
-    # --------------------------------------------------------------------------
-    "[rust]" = {
-      "editor.defaultFormatter" = "rust-lang.rust-analyzer";
-    };
 
     # --------------------------------------------------------------------------
     # svelte settings
