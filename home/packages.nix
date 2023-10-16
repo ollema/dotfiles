@@ -4,16 +4,11 @@ let
   bin = import ./bin.nix { inherit pkgs; };
 
   darwinSpecific = with pkgs; [
-    # GUI apps
-    element-desktop # matrix client
-    # terminal
     iterm2 # terminal emulator of choice
-    # additionnal python installation
     python312 # python 3.12
   ] ++ (with pkgs.nerdfonts; [ (override { fonts = [ "CascadiaCode" "FiraCode" "Iosevka" ]; }) ]);
 
   utils = with pkgs; [
-    # utils
     bottom # fancy version of `top`
     choose # cut alternative
     dogdns # fancy version of `dig`
