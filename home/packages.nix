@@ -36,8 +36,8 @@ let
   ];
 
   jsTools = with pkgs; [
-    nodejs # node (currently node 18)
-    nodePackages.pnpm # node package manager
+    nodePackages_latest.nodejs # node (currently node 20)
+    nodePackages_latest.pnpm # node package manager
   ];
 
   nixTools = with pkgs; [
