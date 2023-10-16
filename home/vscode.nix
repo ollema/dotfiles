@@ -129,6 +129,8 @@ in
     };
     # configure black
     "black-formatter.args" = [ "--line-length=100" ];
+    # configure ruff
+    "ruff.args" = [ "--line-length=100" "--ignore=E501" ];
 
     # --------------------------------------------------------------------------
     # svelte settings
