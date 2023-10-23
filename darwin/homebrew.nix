@@ -15,6 +15,7 @@
     "inkscape"
     "insomnia"
     "raycast"
+    "reaper"
     "rectangle"
     "spotify"
   ];
