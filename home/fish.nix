@@ -25,7 +25,8 @@
     gp = "git push";
     gl = "git l";
     gd = "git diff";
-    gf = "git fetch";
+    gf = "git fetch --all";
+    gsw = "git switch";
 
     tfn = "tail -f -n100";
   };

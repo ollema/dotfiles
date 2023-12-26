@@ -80,6 +80,9 @@ in
     # --------------------------------------------------------------------------
     "files.trimTrailingWhitespace" = true;
     "files.insertFinalNewline" = true;
+    "files.associations" = {
+      "*.postcss" = "tailwindcss";
+    };
 
     # --------------------------------------------------------------------------
     # search settings
@@ -146,6 +149,16 @@ in
     # --------------------------------------------------------------------------
     "[typescript]" = {
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
+    };
+
+    # --------------------------------------------------------------------------
+    # copilot settings
+    # --------------------------------------------------------------------------
+    "github.copilot.enable" = {
+      "*" = true;
+      "plaintext" = true;
+      "markdown" = true;
+      "scminput" = true;
     };
   };
 }
