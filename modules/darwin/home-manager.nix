@@ -16,6 +16,9 @@ in
     shell = pkgs.fish;
   };
 
+  # no idea why this is needed
+  programs.fish.enable = true;
+
   system.activationScripts.extraActivation.text = "touch /Users/${user}/.hushlogin";
 
   homebrew = {

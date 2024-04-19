@@ -1,7 +1,7 @@
 {
   enable = true;
   config = {
-    theme = "Visual Studio Dark Modern";
+    theme = "Visual Studio Dark+";
     paging = "never";
   };
 }
