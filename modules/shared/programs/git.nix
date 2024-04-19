@@ -1,4 +1,4 @@
-{ name, email, ... }:
+{ name, ... }:
 
 {
   enable = true;
