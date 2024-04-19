@@ -1,8 +1,15 @@
-{ pkgs, ... }:
-
 {
   enable = true;
   settings = {
-    shell.program = "${pkgs.fish}/bin/fish";
+    window = {
+      padding = {
+        x = 10;
+        y = 10;
+      };
+
+      dynamic_padding = true;
+      
+      title = "Terminal";
+    };
   };
 }

@@ -7,7 +7,7 @@ let
 in
 {
   # terminal emulator
-  alacritty = import ./programs/alacritty.nix { inherit pkgs; };
+  alacritty = import ./programs/alacritty.nix;
 
   # cat replacement
   bat = import ./programs/bat.nix;
