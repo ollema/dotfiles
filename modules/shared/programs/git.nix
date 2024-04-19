@@ -33,4 +33,9 @@
       navigate = true;
     };
   };
+
+  includes = [{
+    path = "~/repos/work/.gitconfig";
+    condition = "gitdir:~/repos/work/";
+  }];
 }
