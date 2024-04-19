@@ -5,6 +5,10 @@
     cat = "bat --paging=never";
     find = "fd";
     reload = "exec fish";
+
+    dlos-server = "ssh -t dlos-server 'tmux -CC new -A -s main'";
+    dlod-server = "ssh -t dlod-server 'tmux -CC new -A -s main'";
+    hal = "ssh -t hal 'tmux -CC new -A -s main'";
   };
 
   shellAbbrs = {
