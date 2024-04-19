@@ -18,14 +18,13 @@ in
   fish = import ./programs/fish.nix;
 
   # git
-  git = import ./programs/git.nix {
-    inherit name};
+  git = import ./programs/git.nix { inherit name; };
 
-      # starship prompt
-      starship= import./programs/starship.nix;
+  # starship prompt
+  starship = import./programs/starship.nix;
 
-      # ssh
-      ssh= import./programs/ssh.nix;
+  # ssh
+  ssh = import./programs/ssh.nix;
 
-    # tmux
-    }
+  # tmux
+}
