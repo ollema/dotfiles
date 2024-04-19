@@ -2,7 +2,6 @@
 
 with pkgs; [
   alacritty
-  # bat # TODO: move to home-manager
   coreutils
   curl
   du-dust
@@ -38,12 +37,10 @@ with pkgs; [
   nixpkgs-fmt
 
   # -- node --
-  # nodePackages.npm # globally install npm
-  # nodePackages.prettier
-  # nodejs
+  nodejs
 
   # -- python --
-  # python312
-  # uv
-  # ruff
+  python312
+  uv
+  ruff
 ]
