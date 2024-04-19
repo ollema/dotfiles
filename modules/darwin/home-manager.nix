@@ -6,7 +6,7 @@ let
 in
 {
   imports = [
-   ./dock
+    ./dock
   ];
 
   users.users.${user} = {
@@ -20,30 +20,30 @@ in
 
   homebrew = {
     enable = true;
-    casks = pkgs.callPackage ./casks.nix {};
-    masApps = {};
+    casks = pkgs.callPackage ./casks.nix { };
+    masApps = { };
   };
 
   home-manager = {
     useGlobalPkgs = true;
-    users.${user} = { pkgs, config, lib, ... }:{
+    users.${user} = { pkgs, config, lib, ... }: {
       home = {
         enableNixpkgsReleaseCheck = false;
-        packages = pkgs.callPackage ./packages.nix {};
+        packages = pkgs.callPackage ./packages.nix { };
         file = lib.mkMerge [
           sharedFiles
         ];
 
         stateVersion = "23.11";
       };
-      programs = {} // import ../shared/home-manager.nix { inherit config pkgs lib; };
+      programs = { } // import ../shared/home-manager.nix { inherit config pkgs lib; };
 
       manual.manpages.enable = false;
     };
   };
 
   # fully declarative dock
-  local = { 
+  local = {
     dock = {
       enable = true;
       entries = [

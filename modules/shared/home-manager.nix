@@ -1,8 +1,10 @@
 { config, pkgs, lib, ... }:
 
-let name = "Olle Månsson";
-    user = "s0001325";
-    email = "31876997+ollema@users.noreply.github.com"; in
+let
+  name = "Olle Månsson";
+  user = "s0001325";
+  email = "31876997+ollema@users.noreply.github.com";
+in
 {
   # shared shell configuration
   fish = {
@@ -35,23 +37,23 @@ let name = "Olle Månsson";
     ignores = [ "*.swp" ];
     userName = name;
     userEmail = email;
-    
+
     aliases = {
       l =
         "log --pretty=format:'%C(auto,bold)%h %C(auto,reset)-%C(auto)%d %<|(100,trunc)%C(auto,reset)%s %>(20,trunc)%C(auto,dim)%cr - %aN'";
     };
-   
+
     extraConfig = {
       push.default = "current";
       pull.rebase = true;
       init.defaultBranch = "main";
       # commit.gpgsign = true; # TODO
       color.ui = true;
-      
-      core = { 
+
+      core = {
         editor = "nano";
       };
-      
+
       core.pager = "delta";
       interactive.diffFilter = "delta --color-only";
       merge.conflictstyle = "diff3";
@@ -68,7 +70,7 @@ let name = "Olle Månsson";
   alacritty = {
     enable = true;
     settings = {
-    shell.program = "${pkgs.fish}/bin/fish";
+      shell.program = "${pkgs.fish}/bin/fish";
     };
   };
 

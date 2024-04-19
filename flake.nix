@@ -22,7 +22,7 @@
     homebrew-cask = {
       url = "github:homebrew/homebrew-cask";
       flake = false;
-    }; 
+    };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -37,14 +37,15 @@
       user = "s0001325";
       darwinSystems = [ "aarch64-darwin" ];
       forAllSystems = f: nixpkgs.lib.genAttrs (darwinSystems) f;
-      devShell = system: let pkgs = nixpkgs.legacyPackages.${system}; in {
-        default = with pkgs; mkShell {
-          nativeBuildInputs = with pkgs; [ bashInteractive git age age-plugin-yubikey ];
-          shellHook = with pkgs; ''
-            export EDITOR=vim
-          '';
+      devShell = system:
+        let pkgs = nixpkgs.legacyPackages.${system}; in {
+          default = with pkgs; mkShell {
+            nativeBuildInputs = with pkgs; [ bashInteractive git age age-plugin-yubikey ];
+            shellHook = with pkgs; ''
+              export EDITOR=vim
+            '';
+          };
         };
-      };
       mkApp = scriptName: system: {
         type = "app";
         program = "${(nixpkgs.legacyPackages.${system}.writeScriptBin scriptName ''
@@ -92,5 +93,5 @@
           ];
         }
       );
-  };
+    };
 }

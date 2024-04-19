@@ -2,7 +2,7 @@
 
 let user = "s0001325"; in
 {
-  age.identityPaths = [ 
+  age.identityPaths = [
     "/Users/${user}/.ssh/id_ed25519"
   ];
 

@@ -3,19 +3,18 @@
 let user = "s0001325"; in
 
 {
-
   imports = [
     ../../modules/darwin/secrets.nix
     ../../modules/darwin/home-manager.nix
     ../../modules/shared
     ../../modules/shared/cachix
-     agenix.darwinModules.default
+    agenix.darwinModules.default
   ];
 
-  # Auto upgrade nix package and the daemon service.
+  # auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
 
-  # Setup user, packages, programs
+  # setup user, packages, programs
   nix = {
     package = pkgs.nixUnstable;
     settings.trusted-users = [ "@admin" "${user}" ];
@@ -27,21 +26,21 @@ let user = "s0001325"; in
       options = "--delete-older-than 30d";
     };
 
-    # Turn this on to make command line easier
+    # turn this on to make command line easier
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
   };
 
-  # Turn off NIX_PATH warnings now that we're using flakes
+  # turn off NIX_PATH warnings now that we're using flakes
   system.checks.verifyNixPath = false;
 
-  # Load configuration that is shared across systems
+  # load configuration that is shared across systems
   environment.systemPackages = with pkgs; [
     agenix.packages."${pkgs.system}".default
   ] ++ (import ../../modules/shared/packages.nix { inherit pkgs; });
 
-  # Enable fonts dir
+  # enable fonts dir
   fonts.fontDir.enable = true;
 
   system = {
@@ -90,7 +89,7 @@ let user = "s0001325"; in
 
         # don't show recent applications in the dock
         show-recents = false;
-        
+
         # enable launch animation
         launchanim = true;
 

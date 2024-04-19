@@ -41,7 +41,7 @@ with pkgs; [
   # nodePackages.npm # globally install npm
   # nodePackages.prettier
   # nodejs
-  
+
   # -- python --
   # python312
   # uv
