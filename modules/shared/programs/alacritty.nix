@@ -50,5 +50,9 @@
         white = "0xe5e5e5";
       };
     };
+
+    keyboard.bindings = [
+      { key = "T"; mods = "Command"; action = "None"; }
+    ];
   };
 }
