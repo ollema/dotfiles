@@ -21,10 +21,10 @@ in
   git = import ./programs/git.nix { inherit name; };
 
   # starship prompt
-  starship = import./programs/starship.nix;
+  starship = import ./programs/starship.nix;
 
   # ssh
-  ssh = import./programs/ssh.nix;
+  ssh = import ./programs/ssh.nix;
 
   # tmux
 }
