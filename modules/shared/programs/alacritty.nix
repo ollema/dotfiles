@@ -2,9 +2,11 @@
   enable = true;
   settings = {
     window = {
+      decorations = "buttonless";
+      
       padding = {
         x = 10;
-        y = 10;
+        y = 6;
       };
 
       dynamic_padding = true;

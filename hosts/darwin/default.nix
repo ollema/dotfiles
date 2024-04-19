@@ -40,6 +40,13 @@ let user = "s0001325"; in
     agenix.packages."${pkgs.system}".default
   ] ++ (import ../../modules/shared/packages.nix { inherit pkgs; });
 
+  # add fish to /etc/shells
+  environment.shells = [ pkgs.fish ];
+
+  # set login shell
+  environment.loginShell = "${pkgs.fish}/bin/fish -l";
+  environment.variables.SHELL = "${pkgs.fish}/bin/fish";
+
   # enable fonts dir
   fonts.fontDir.enable = true;
 
@@ -101,7 +108,14 @@ let user = "s0001325"; in
       };
 
       finder = {
+        # hide path in title
         _FXShowPosixPathInTitle = false;
+        # hide desktop icons
+        CreateDesktop = false;
+        # enable quitting finder via ⌘ + Q (doing so will also hide desktop icons)
+        QuitMenuItem = true;
+        # show path bar
+        ShowPathbar = true;
       };
 
       trackpad = {
