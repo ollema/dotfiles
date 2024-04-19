@@ -1,59 +1,96 @@
 {
+  description = "MacOS declarative configuration using Nix";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    darwin.url = "github:lnl7/nix-darwin/master";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    agenix.url = "github:ryantm/agenix";
     home-manager.url = "github:nix-community/home-manager";
-
-    darwin.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    darwin = {
+      url = "github:wegank/nix-darwin/mddoc-remove"; # TODO: fix
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-homebrew = {
+      url = "github:zhaofengli-wip/nix-homebrew";
+    };
+    homebrew-bundle = {
+      url = "github:homebrew/homebrew-bundle";
+      flake = false;
+    };
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    }; 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    secrets = {
+      url = "git+ssh://git@github.com/ollema/nix-secrets.git";
+      flake = false;
+    };
   };
-
-  outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs:
+  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager, nixpkgs, disko, agenix, secrets } @inputs:
     let
-      stateVersion = "22.11";
+      user = "s0001325";
+      darwinSystems = [ "aarch64-darwin" ];
+      forAllSystems = f: nixpkgs.lib.genAttrs (darwinSystems) f;
+      devShell = system: let pkgs = nixpkgs.legacyPackages.${system}; in {
+        default = with pkgs; mkShell {
+          nativeBuildInputs = with pkgs; [ bashInteractive git age age-plugin-yubikey ];
+          shellHook = with pkgs; ''
+            export EDITOR=vim
+          '';
+        };
+      };
+      mkApp = scriptName: system: {
+        type = "app";
+        program = "${(nixpkgs.legacyPackages.${system}.writeScriptBin scriptName ''
+          #!/usr/bin/env bash
+          PATH=${nixpkgs.legacyPackages.${system}.git}/bin:$PATH
+          echo "Running ${scriptName} for ${system}"
+          exec ${self}/apps/${system}/${scriptName}
+        '')}/bin/${scriptName}";
+      };
+      mkDarwinApps = system: {
+        "apply" = mkApp "apply" system;
+        "build" = mkApp "build" system;
+        "build-switch" = mkApp "build-switch" system;
+        "copy-keys" = mkApp "copy-keys" system;
+        "create-keys" = mkApp "create-keys" system;
+        "check-keys" = mkApp "check-keys" system;
+        "rollback" = mkApp "rollback" system;
+      };
     in
     {
-      # --------------------------------------------------------------------------
-      # nix-darwin configurations (includes home-manager!)
-      # --------------------------------------------------------------------------
-      # 14" M1 MacBook Pro
-      darwinConfigurations.mDYXPYMR2PF =
-        let
-          username = "s0001325";
-          homeDirectory = "/Users/${username}";
-          system = "aarch64-darwin";
-        in
+      devShells = forAllSystems devShell;
+      apps = nixpkgs.lib.genAttrs darwinSystems mkDarwinApps;
+
+      darwinConfigurations = nixpkgs.lib.genAttrs darwinSystems (system:
         darwin.lib.darwinSystem {
           inherit system;
+          specialArgs = inputs;
           modules = [
-            # nix-darwin module
-            (import ./darwin { inherit homeDirectory username; })
-            # home-manager module
             home-manager.darwinModules.home-manager
+            nix-homebrew.darwinModules.nix-homebrew
             {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.${username} = (import ./home { inherit homeDirectory stateVersion username; });
+              nix-homebrew = {
+                inherit user;
+                enable = true;
+                taps = {
+                  "homebrew/homebrew-core" = homebrew-core;
+                  "homebrew/homebrew-cask" = homebrew-cask;
+                  "homebrew/homebrew-bundle" = homebrew-bundle;
+                };
+                mutableTaps = false;
+                autoMigrate = true;
+              };
             }
+            ./hosts/darwin
           ];
-        };
-
-      # --------------------------------------------------------------------------
-      # home-manager configurations (for linux servers)
-      # --------------------------------------------------------------------------
-      # dlos-server
-      homeConfigurations.a0001325 =
-        let
-          username = "a0001325";
-          homeDirectory = "/home/${username}";
-          system = "x86_64-linux";
-        in
-        home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${system};
-          modules = [
-            # home-manager module
-            (import ./home { inherit homeDirectory stateVersion username; })
-          ];
-        };
-    };
+        }
+      );
+  };
 }
