@@ -55,6 +55,12 @@ let user = "s0001325"; in
 
     defaults = {
       NSGlobalDomain = {
+        # enable dark mode
+        AppleInterfaceStyle = "Dark";
+
+        # disable automatic mode switching
+        AppleInterfaceStyleSwitchesAutomatically = false;
+
         # disable automatic capitalization as it's annoying when writing code
         NSAutomaticCapitalizationEnabled = false;
 
@@ -90,23 +96,6 @@ let user = "s0001325"; in
         "com.apple.sound.beep.feedback" = 0;
       };
 
-      dock = {
-        # automatically hide and show the dock
-        autohide = true;
-
-        # don't show recent applications in the dock
-        show-recents = false;
-
-        # enable launch animation
-        launchanim = true;
-
-        # set dock orientation to bottom
-        orientation = "bottom";
-
-        # set dock size (default is 64)
-        tilesize = 48;
-      };
-
       finder = {
         # hide path in title
         _FXShowPosixPathInTitle = false;
@@ -116,6 +105,22 @@ let user = "s0001325"; in
         QuitMenuItem = true;
         # show path bar
         ShowPathbar = true;
+      };
+
+      dock = {
+        # automatically hide and show the dock
+        autohide = true;
+
+        # don't show recent applications in the dock
+        show-recents = false;
+
+        # set dock size (default is 64)
+        tilesize = 48;
+      };
+
+      loginwindow = {
+        # disable guest account
+        GuestEnabled = false;
       };
 
       trackpad = {
