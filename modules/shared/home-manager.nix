@@ -5,9 +5,6 @@ let
   user = "s0001325";
 in
 {
-  # terminal emulator
-  alacritty = import ./programs/alacritty.nix;
-
   # cat replacement
   bat = import ./programs/bat.nix;
 
@@ -25,7 +22,4 @@ in
 
   # ssh
   ssh = import ./programs/ssh.nix { inherit lib; };
-
-  # tmux
-  tmux = import ./programs/tmux.nix { inherit user; };
 }
