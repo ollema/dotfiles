@@ -22,6 +22,7 @@ _:
   # dev tools
   "bruno"
   "homebrew/cask/docker"
+  "iterm2"
   "visual-studio-code"
 
   # entertainment
