@@ -24,7 +24,8 @@ in
   starship = import ./programs/starship.nix;
 
   # ssh
-  ssh = import ./programs/ssh.nix {inherit lib; };
+  ssh = import ./programs/ssh.nix { inherit lib; };
 
   # tmux
+  tmux = import ./programs/tmux.nix { inherit user; };
 }
