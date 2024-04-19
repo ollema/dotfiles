@@ -57,11 +57,13 @@ in
         { path = "/Applications/Arc.app"; }
         { path = "${pkgs.alacritty}/Applications/Alacritty.app/"; }
         { path = "/Applications/Visual\ Studio\ Code.app/"; }
+        { path = "/Applications/Spotify.app/"; }
+        { path = "/Applications/Discord.app/"; }
+        { path = "/Applications/Slack.app/"; }
+        { path = "/Applications/Microsoft\ Teams\ (work\ or\ school).app"; }
         { path = "/System/Applications/Messages.app/"; }
         { path = "/System/Applications/Facetime.app/"; }
-        { path = "/Applications/Slack.app/"; }
-        { path = "/Applications/Spotify.app/"; }
-        { path = "/Applications/Microsoft\ Teams\ (work\ or\ school).app"; }
+        { path = "/System/Applications/Calendar.app/"; }
       ];
     };
   };
