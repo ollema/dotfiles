@@ -19,7 +19,11 @@ in
   # no idea why this is needed
   programs.fish.enable = true;
 
+  # disable welcome message
   system.activationScripts.extraActivation.text = "touch /Users/${user}/.hushlogin";
+
+  # enable sudo TouchID
+  security.pam.enableSudoTouchIdAuth = true;
 
   homebrew = {
     enable = true;
