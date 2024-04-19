@@ -3,7 +3,7 @@
   settings = {
     window = {
       decorations = "buttonless";
-      
+
       padding = {
         x = 10;
         y = 6;
