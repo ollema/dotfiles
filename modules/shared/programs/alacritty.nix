@@ -1,6 +1,14 @@
 {
   enable = true;
   settings = {
+    font = {
+      normal = {
+        family = "CaskaydiaCove Nerd Font Mono";
+        style = "Regular";
+      };
+      size = 12;
+    };
+
     window = {
       decorations = "buttonless";
 
