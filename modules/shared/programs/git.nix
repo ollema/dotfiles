@@ -4,7 +4,7 @@
   enable = true;
   ignores = [ "*.swp" ];
   userName = name;
-  userEmail = email;
+  userEmail = "31876997+ollema@users.noreply.github.com";
 
   aliases = {
     l =

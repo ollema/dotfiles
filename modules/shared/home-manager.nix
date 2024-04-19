@@ -3,7 +3,6 @@
 let
   name = "Olle Månsson";
   user = "s0001325";
-  email = "31876997+ollema@users.noreply.github.com";
 in
 {
   # terminal emulator
@@ -19,28 +18,14 @@ in
   fish = import ./programs/fish.nix;
 
   # git
-  git = import ./programs/git.nix { inherit name email; };
+  git = import ./programs/git.nix {
+    inherit name};
 
-  # starship prompt
-  starship = import ./programs/starship.nix;
+      # starship prompt
+      starship= import./programs/starship.nix;
 
-  ssh = {
-    enable = true;
+      # ssh
+      ssh= import./programs/ssh.nix;
 
-    extraConfig = lib.mkMerge [
-      ''
-        Host github.com
-          Hostname github.com
-          IdentitiesOnly yes
-      ''
-      # (lib.mkIf pkgs.stdenv.hostPlatform.isLinux
-      #   ''
-      #     IdentityFile /home/${user}/.ssh/id_github
-      #   '')
-      # (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin
-      #   ''
-      #     IdentityFile /Users/${user}/.ssh/id_github
-      #   '')
-    ];
-  };
-}
+    # tmux
+    }
