@@ -6,73 +6,23 @@ let
   email = "31876997+ollema@users.noreply.github.com";
 in
 {
-  # shared shell configuration
-  fish = {
-    enable = true;
+  # terminal emulator
+  alacritty = import ./programs/alacritty.nix { inherit pkgs; };
 
-    shellAliases = {
-      cat = "bat --paging=never";
-      find = "fd";
-      # ls, ll, lha... are set by eza in ./programs.nix
-      reload = "exec fish";
-    };
+  # cat replacement
+  bat = import ./programs/bat.nix;
 
-    shellAbbrs = {
-      gs = "git status";
-      ga = "git add .";
-      gc = "git commit";
-      gcm = "git commit -m";
-      gca = "git commit --amend";
-      gac = "git add .; git commit --amend --no-edit";
-      gp = "git push";
-      gl = "git l";
-      gd = "git diff";
-      gf = "git fetch --all";
-      gsw = "git switch";
-    };
-  };
+  # ls replacement
+  eza = import ./programs/eza.nix;
 
-  git = {
-    enable = true;
-    ignores = [ "*.swp" ];
-    userName = name;
-    userEmail = email;
+  # fish shell
+  fish = import ./programs/fish.nix;
 
-    aliases = {
-      l =
-        "log --pretty=format:'%C(auto,bold)%h %C(auto,reset)-%C(auto)%d %<|(100,trunc)%C(auto,reset)%s %>(20,trunc)%C(auto,dim)%cr - %aN'";
-    };
+  # git
+  git = import ./programs/git.nix { inherit name email; };
 
-    extraConfig = {
-      push.default = "current";
-      pull.rebase = true;
-      init.defaultBranch = "main";
-      # commit.gpgsign = true; # TODO
-      color.ui = true;
-
-      core = {
-        editor = "nano";
-      };
-
-      core.pager = "delta";
-      interactive.diffFilter = "delta --color-only";
-      merge.conflictstyle = "diff3";
-      diff.colorMoved = "default";
-
-      delta = {
-        features = "line-numbers";
-        syntax-theme = "Visual Studio Dark+";
-        navigate = true;
-      };
-    };
-  };
-
-  alacritty = {
-    enable = true;
-    settings = {
-      shell.program = "${pkgs.fish}/bin/fish";
-    };
-  };
+  # starship prompt
+  starship = import ./programs/starship.nix;
 
   ssh = {
     enable = true;
